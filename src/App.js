@@ -1,4 +1,4 @@
-import ExpenseItem from "./Components/ExpenseItem";
+import Expenses from "./Components/Expenses";
 // Always make sure you are importing from the correct file, the correct folder, etc. Check, carefully, the names and the path.
 
 function App() {
@@ -28,10 +28,7 @@ function App() {
     //well, this is JSX : JavaScript XML. This is allowed because all the transformations that happen behind the scenes.
     <div>
       <h2>Let's get started!</h2>
-      <ExpenseItem name={expenses[0].title} qty={expenses[0].amount} expenseDate={expenses[0].date}></ExpenseItem>
-      <ExpenseItem name={expenses[1].title} qty={expenses[1].amount} expenseDate={expenses[1].date}></ExpenseItem>
-      <ExpenseItem name={expenses[2].title} qty={expenses[2].amount} expenseDate={expenses[2].date}></ExpenseItem>
-      <ExpenseItem name={expenses[3].title} qty={expenses[3].amount} expenseDate={expenses[3].date}></ExpenseItem>
+      <Expenses items={expenses} />
     </div>
   );
 }
