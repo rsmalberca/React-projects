@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<App />);
 
-// we call the method render on that object stored in the variable 'root', to tell react what should be render on that root element, in this case App.js.
+// we call the method render on that object stored in the variable 'root', to tell react what should be render on that root element, in this case, App.js.
 // './' means: please look in the same folder this index.js is. it's the relative path where that App.js file is stored in.
 
 // IMPORTANT: when you import other JS file or libraries you ommit the .js, only use it (.css,etc) when the file isn't a JS file.
