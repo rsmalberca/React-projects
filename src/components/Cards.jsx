@@ -1,10 +1,11 @@
 // import characters from "../data";
 import Card from "./Card";
+import "./Card.css";
 
 function Cards(props) {
   const { characters } = props;
   return (
-    <div>
+    <div className="div__cards">
       {characters.map((c, index) => (
         <Card
           name={c.name}

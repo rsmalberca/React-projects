@@ -1,8 +1,12 @@
 .App {
-   /* display: flex;
+  /* display: flex;
    justify-content: space-between;
    flex-direction: row; */
-   text-align: center;
+  text-align: center;
+  padding: 25px;
+  /* display: flex; */
+  background-image: url("./assets/rm2.png");
+  background-size: cover;
 }
 /* .divCards {
    display: flex;

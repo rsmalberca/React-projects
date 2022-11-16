@@ -3,11 +3,14 @@ import Card from "./components/Card.jsx";
 import Cards from "./components/Cards.jsx";
 import SearchBar from "./components/SearchBar.jsx";
 import characters, { Rick } from "./data.js";
+import "normalize.css";
+import "../src/components/Card.css";
 
 function App() {
   return (
-    <div className="App" style={{ padding: "25px" }}>
-      <div>
+    //className="App" style={{ padding: "25px" }}>
+    <div className="App">
+      <div className="first__div">
         <Card
           name={Rick.name}
           species={Rick.species}
