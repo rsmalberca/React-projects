@@ -1,8 +1,10 @@
+import "./Card.css";
+
 function SearchBar(props) {
   return (
-    <div>
-      <input type="search" />
-      <button onClick={props.onSearch}>Agregar</button>
+    <div className="div__search">
+      <input type="search" placeholder="Who would you like to add?" />
+      <button onClick={props.onSearch}>Add</button>
     </div>
   );
 }
