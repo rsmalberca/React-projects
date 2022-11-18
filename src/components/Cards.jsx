@@ -2,8 +2,7 @@
 import Card from "./Card";
 import "./Card.css";
 
-function Cards(props) {
-  const { characters } = props;
+function Cards({ characters, onClose }) {
   return (
     <div className="div__cards">
       {characters.map((c, index) => (
@@ -12,8 +11,9 @@ function Cards(props) {
           species={c.species}
           gender={c.gender}
           image={c.image}
-          onClose={() => window.alert("Emulamos que se cierra la card")}
-          key = {index}
+          id={c.id}
+          onClose={onClose}
+          key={index}
         />
       ))}
     </div>

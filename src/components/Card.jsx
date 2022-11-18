@@ -3,7 +3,7 @@ import "./Card.css";
 function Card(props) {
   return (
     <div className="card__character">
-      <button className="close__button" onClick={props.onClose}>
+      <button className="close__button" onClick={() => props.onClose(props.id)}>
         &#10006;
       </button>
       <h2>{props.name}</h2>

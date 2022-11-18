@@ -3,6 +3,9 @@ body {
   font-family: "Space Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./assets/rm2.png");
+  /* background-repeat: repeat; */
+  background-size: cover;
   /* background-image: url("./assets/bckgImage.jpg");
   background-repeat: no-repeat;
   background-size: cover; */
