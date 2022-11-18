@@ -16,14 +16,21 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (character) => {
-    // if (characters.length === 0) {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
+          for (let c of characters) {
+            if (c.id === data.id) {
+              window.alert(
+                "This character has already been added, try another one!"
+              );
+              return;
+            }
+          }
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
-          window.alert("No hay personajes con ese ID");
+          window.alert("There is not a character with that ID");
         }
       });
   };
