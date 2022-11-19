@@ -1,6 +1,6 @@
 // import characters from "../data";
-import Card from "./Card";
-import "./Card.css";
+import Card from "../Card/Card";
+import "../Card/Card.css";
 
 function Cards({ characters, onClose }) {
   return (

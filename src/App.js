@@ -1,18 +1,15 @@
 import "./App.css";
-import Cards from "./components/Cards.jsx";
-import NavBar from "../src/components/NavBar";
+import Cards from "./components/Cards/Cards.jsx";
+import NavBar from "../src/components/NavBar/NavBar";
 import "normalize.css";
-import "../src/components/Card.css";
+import "../src/components/Card/Card.css";
 import React from "react";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About/About";
+import Detail from "./components/Detail/Detail";
 
 function App() {
-  // const example = {
-  //   name: "Morty Smith",
-  //   species: "Human",
-  //   gender: "Male",
-  //   image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-  // };
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (character) => {
@@ -45,7 +42,14 @@ function App() {
     //className="App" style={{ padding: "25px" }}>
     <div className="App">
       <NavBar onSearch={onSearch}></NavBar>
-      <Cards characters={characters} onClose={onClose} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:detailId" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
