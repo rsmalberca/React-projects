@@ -12,6 +12,7 @@ function NavBar({ onSearch }) {
       </Link>
       <Link to="/about">About</Link>
       <Link to="/">Home</Link>
+      <Link to="/login">LogIn</Link>
       <SearchBar onSearch={onSearch}></SearchBar>
     </div>
   );

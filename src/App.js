@@ -5,9 +5,10 @@ import "normalize.css";
 import "../src/components/Card/Card.css";
 import React from "react";
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
+import Form from "./components/Form/Form";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -38,10 +39,13 @@ function App() {
     setCharacters(characters.filter((char) => char.id !== id));
   };
 
+  const location = useLocation();
+  // location is an object that has a property name 'location' which value is the pathname (the URL where I'm located, the current location (url))
+
   return (
     //className="App" style={{ padding: "25px" }}>
     <div className="App">
-      <NavBar onSearch={onSearch}></NavBar>
+      {location.pathname !== "/login" && <NavBar onSearch={onSearch}></NavBar>}
       <Routes>
         <Route
           path="/"
@@ -49,6 +53,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/login" element={<Form />} />
       </Routes>
     </div>
   );
