@@ -1,0 +1,15 @@
+.container {
+  margin: auto;
+  background-color: #6b005bbf;
+  width: 20%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 50px;
+}
+
+.inputs {
+  margin-bottom: 2.5rem;
+}
