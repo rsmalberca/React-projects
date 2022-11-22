@@ -4,7 +4,6 @@ import "./SearchBar.css";
 function SearchBar({ onSearch }) {
   const [character, setCharacter] = useState("");
   const handleChange = (e) => {
-    // const { value } = e.target;
     setCharacter(e.target.value);
   };
   return (

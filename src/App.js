@@ -4,14 +4,34 @@ import NavBar from "../src/components/NavBar/NavBar";
 import "normalize.css";
 import "../src/components/Card/Card.css";
 import React from "react";
-import { useState } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+  const username = "rasma37@hotmail.com";
+  const password = "1234renzo";
+  const navigate = useNavigate();
+
+  const login = (userData) => {
+    if (userData.password === password && userData.username === username) {
+      setAccess(true);
+      navigate("/");
+    }
+  };
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
+  const logout = () => {
+    setAccess(false);
+    navigate("/login");
+  };
 
   const onSearch = (character) => {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -45,7 +65,9 @@ function App() {
   return (
     //className="App" style={{ padding: "25px" }}>
     <div className="App">
-      {location.pathname !== "/login" && <NavBar onSearch={onSearch}></NavBar>}
+      {location.pathname !== "/login" && (
+        <NavBar onSearch={onSearch} onClick={logout}></NavBar>
+      )}
       <Routes>
         <Route
           path="/"
@@ -53,7 +75,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
-        <Route path="/login" element={<Form />} />
+        <Route path="/login" element={<Form onClick={login} />} />
       </Routes>
     </div>
   );

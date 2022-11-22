@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { validate } from "./validation";
 
-function Form() {
+function Form({ onClick }) {
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -16,6 +16,7 @@ function Form() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    onClick(userData);
   };
 
   const handleInputChange = (e) => {
