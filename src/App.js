@@ -24,9 +24,11 @@ function App() {
     }
   };
 
-  useEffect(() => {
+  // This has to be commented since we are already working with login & logout.
+
+  /* useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, [access]); */
 
   const logout = () => {
     setAccess(false);

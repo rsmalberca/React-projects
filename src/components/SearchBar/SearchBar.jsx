@@ -6,6 +6,11 @@ function SearchBar({ onSearch }) {
   const handleChange = (e) => {
     setCharacter(e.target.value);
   };
+
+  const clearInput = () => {
+    let inputID = document.querySelector("input");
+    inputID.value = "";
+  };
   return (
     <div className="div__search">
       <input
@@ -13,7 +18,14 @@ function SearchBar({ onSearch }) {
         placeholder="Who would you like to add?"
         onChange={handleChange}
       />
-      <button onClick={() => onSearch(character)}>Add</button>
+      <button
+        onClick={() => {
+          onSearch(character);
+          clearInput();
+        }}
+      >
+        Add
+      </button>
     </div>
   );
 }
