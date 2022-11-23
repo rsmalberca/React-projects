@@ -36,7 +36,7 @@ function Detail() {
         </ul>
       </div>
       <img src={character.image} alt={""} />
-      <Link to="/">
+      <Link to="/home">
         <button>Go Home</button>
       </Link>
     </div>

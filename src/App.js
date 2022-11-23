@@ -20,19 +20,17 @@ function App() {
   const login = (userData) => {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
-      navigate("/");
+      navigate("/home");
     }
   };
 
-  // This has to be commented since we are already working with login & logout.
-
-  /* useEffect(() => {
+  useEffect(() => {
     !access && navigate("/");
-  }, [access]); */
+  }, [access]);
 
   const logout = () => {
     setAccess(false);
-    navigate("/login");
+    navigate("/");
   };
 
   const onSearch = (character) => {
@@ -63,21 +61,22 @@ function App() {
 
   const location = useLocation();
   // location is an object that has a property name 'location' which value is the pathname (the URL where I'm located, the current location (url))
+  // location = {pathname : url} ---> location.pathname = url ('/home') <--- for example
 
   return (
     //className="App" style={{ padding: "25px" }}>
     <div className="App">
-      {location.pathname !== "/login" && (
+      {location.pathname !== "/" && (
         <NavBar onSearch={onSearch} onClick={logout}></NavBar>
       )}
       <Routes>
         <Route
-          path="/"
+          path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
-        <Route path="/login" element={<Form onClick={login} />} />
+        <Route path="/" element={<Form onClick={login} />} />
       </Routes>
     </div>
   );
